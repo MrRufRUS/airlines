@@ -1,24 +1,18 @@
 package ru.tsyplakov.airlines.domain;
 
-import java.util.UUID;
+public class User extends BaseEntity {
 
-public class User {
-
-    private final UUID id = UUID.randomUUID();
     private String fullName;
     private String email;
     private String passwordHash;
-    private String role;
+    private UserRole role;
 
-    public User(String fullName, String email, String passwordHash) {
+    public User(Long id, String fullName, String email, String passwordHash) {
+        super(id);
         this.fullName = fullName;
         this.email = email;
         this.passwordHash = passwordHash;
-        this.role = UserRole.PASSENGER.name();
-    }
-
-    public UUID getId() {
-        return id;
+        this.role = UserRole.PASSENGER;
     }
 
     public String getFullName() {
@@ -45,11 +39,11 @@ public class User {
         this.passwordHash = passwordHash;
     }
 
-    public String getRole() {
+    public UserRole getRole() {
         return role;
     }
 
-    public void setRole(String role) {
+    public void setRole(UserRole role) {
         this.role = role;
     }
 }

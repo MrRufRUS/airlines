@@ -2,39 +2,33 @@ package ru.tsyplakov.airlines.domain;
 
 import java.math.BigDecimal;
 import java.time.Instant;
-import java.util.UUID;
 
-public class Booking {
+public class Booking extends BaseEntity{
 
-    private final UUID id;
-    private final UUID userId;
-    private final UUID flightId;
+    private final Long userId;
+    private final Long flightId;
     private String seatNumber;
     private ServiceClass serviceClass;
     private BigDecimal price;
-    private String status;
+    private BookingStatus bookingStatus;
     private Instant bookedAt;
 
-    public Booking(UUID userId, UUID flightId, String seatNumber, ServiceClass serviceClass, BigDecimal price) {
-        this.id = UUID.randomUUID();
+    public Booking(Long id, Long userId, Long flightId, String seatNumber, ServiceClass serviceClass, BigDecimal price) {
+        super(id);
         this.userId = userId;
         this.flightId = flightId;
         this.seatNumber = seatNumber;
         this.serviceClass = serviceClass;
         this.price = price;
-        this.status = BookingStatus.PENDING.name();
+        this.bookingStatus = BookingStatus.PENDING;
         this.bookedAt = Instant.now();
     }
 
-    public UUID getId() {
-        return id;
-    }
-
-    public UUID getUserId() {
+    public Long getUserId() {
         return userId;
     }
 
-    public UUID getFlightId() {
+    public Long getFlightId() {
         return flightId;
     }
 
@@ -62,12 +56,12 @@ public class Booking {
         this.price = price;
     }
 
-    public String getStatus() {
-        return status;
+    public BookingStatus getBookingStatus() {
+        return bookingStatus;
     }
 
-    public void setStatus(String status) {
-        this.status = status;
+    public void setBookingStatus(BookingStatus bookingStatus) {
+        this.bookingStatus = bookingStatus;
     }
 
     public Instant getBookedAt() {
