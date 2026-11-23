@@ -8,14 +8,16 @@ public class Flight extends BaseEntity {
     private String arrivalICAO;
     private Instant departureTime; // время по UTC
     private Instant arrivalTime; // время по UTC
+    private int capacity;
 
-    public Flight(Long id, String flightNumber, String departureICAO, String arrivalICAO, Instant departureTime, Instant arrivalTime) {
+    public Flight(Long id, String flightNumber, String departureICAO, String arrivalICAO, Instant departureTime, Instant arrivalTime, int capacity) {
         super(id);
         this.flightNumber = flightNumber;
         this.departureICAO = departureICAO;
         this.arrivalICAO = arrivalICAO;
         this.departureTime = departureTime;
         this.arrivalTime = arrivalTime;
+        this.capacity = capacity;
     }
 
     public String getFlightNumber() {
@@ -56,5 +58,13 @@ public class Flight extends BaseEntity {
 
     public void setArrivalTime(Instant arrivalTime) {
         this.arrivalTime = arrivalTime;
+    }
+
+    public int getCapacity() {
+        return capacity;
+    }
+
+    public void setCapacity(int capacity) {
+        this.capacity = capacity;
     }
 }
