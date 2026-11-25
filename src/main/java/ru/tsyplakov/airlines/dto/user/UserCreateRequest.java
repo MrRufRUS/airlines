@@ -16,9 +16,6 @@ public record UserCreateRequest(
 
         @NotBlank
         @Size(min = 8, max = 128)
-        String password,
-
-        @NotNull
-        UserRole role
+        String password
 
 ) {}

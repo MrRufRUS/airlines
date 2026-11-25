@@ -13,11 +13,11 @@ public class User extends BaseEntity {
     private String passwordHash;
     private UserRole role;
 
-    public User(Long id, String fullName, String email, String passwordHash) {
+    public User(Long id, String fullName, String email, String passwordHash, UserRole role) {
         super(id);
         this.fullName = fullName;
         this.email = email;
         this.passwordHash = passwordHash;
-        this.role = UserRole.PASSENGER;
+        this.role = role;
     }
 }

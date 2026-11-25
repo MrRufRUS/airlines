@@ -11,11 +11,11 @@ public record FlightCreateRequest(
 
         @NotBlank
         @Pattern(regexp = "[A-Z]{4}")
-        String departureIcao,
+        String departureICAO,
 
         @NotBlank
         @Pattern(regexp = "[A-Z]{4}")
-        String arrivalIcao,
+        String arrivalICAO,
 
         @NotNull
         @Future

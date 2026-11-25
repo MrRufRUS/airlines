@@ -16,8 +16,5 @@ public record UserUpdateRequest(
 
         @Size(min = 8, max = 128)
         @Pattern(regexp = "(?s).*\\S.*")
-        String password,
-
-        UserRole role
-
+        String password
 ) {}

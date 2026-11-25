@@ -11,12 +11,6 @@ import java.math.BigDecimal;
 
 public record BookingUpdateRequest(
 
-        @Positive
-        Long userId,
-
-        @Positive
-        Long flightId,
-
         @Size(max = 5)
         @Pattern(regexp = "(?s).*\\S.*")
         String seatNumber,

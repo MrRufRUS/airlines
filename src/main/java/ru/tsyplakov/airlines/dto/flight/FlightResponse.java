@@ -5,8 +5,8 @@ import java.time.Instant;
 public record FlightResponse(
         Long id,
         String flightNumber,
-        String departureIcao,
-        String arrivalIcao,
+        String departureICAO,
+        String arrivalICAO,
         Instant departureTime,
         Instant arrivalTime,
         Integer capacity

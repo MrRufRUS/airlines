@@ -13,10 +13,10 @@ public record FlightUpdateRequest(
         String flightNumber,
 
         @Pattern(regexp = "[A-Z]{4}")
-        String departureIcao,
+        String departureICAO,
 
         @Pattern(regexp = "[A-Z]{4}")
-        String arrivalIcao,
+        String arrivalICAO,
 
         Instant departureTime,
 

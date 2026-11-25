@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import ru.tsyplakov.airlines.domain.Flight;
+import ru.tsyplakov.airlines.dto.flight.FlightResponse;
 import ru.tsyplakov.airlines.service.FlightService;
 
 import java.util.List;
@@ -20,16 +20,16 @@ public class FlightController {
     }
 
     @GetMapping
-    public List<Flight> getFlights() {
-        return flightService.getAll();
+    public ResponseEntity<List<FlightResponse>> getFlights() {
+        return ResponseEntity.ok(flightService.getAll());
     }
     @GetMapping("/{id}")
-    public ResponseEntity<Flight> getFlightById(@PathVariable Long id) {
-        Flight flight = flightService.getById(id);
+    public ResponseEntity<FlightResponse> getFlightById(@PathVariable Long id) {
+        FlightResponse flightResponse = flightService.getById(id);
 
-        if (flight == null) {
+        if (flightResponse == null) {
             return ResponseEntity.notFound().build();
         }
-        return ResponseEntity.ok(flight);
+        return ResponseEntity.ok(flightResponse);
     }
 }
