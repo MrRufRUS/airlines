@@ -4,19 +4,20 @@ import jakarta.validation.constraints.*;
 import ru.tsyplakov.airlines.domain.UserRole;
 
 public record UserUpdateRequest(
-        @NotBlank
+
         @Size(max = 255)
+        @Pattern(regexp = "(?s).*\\S.*")
         String fullName,
 
-        @NotBlank
         @Email
         @Size(max = 255)
+        @Pattern(regexp = "(?s).*\\S.*")
         String email,
 
-        @NotBlank
         @Size(min = 8, max = 128)
+        @Pattern(regexp = "(?s).*\\S.*")
         String password,
 
-        @NotNull
         UserRole role
+
 ) {}
