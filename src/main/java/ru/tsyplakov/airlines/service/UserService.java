@@ -1,6 +1,7 @@
 package ru.tsyplakov.airlines.service;
 
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.stereotype.Service;
 import ru.tsyplakov.airlines.domain.User;
 import ru.tsyplakov.airlines.dto.user.UserCreateRequest;
 import ru.tsyplakov.airlines.dto.user.UserResponse;
@@ -9,6 +10,7 @@ import ru.tsyplakov.airlines.exeption.NotFoundException;
 import ru.tsyplakov.airlines.mapper.UserMapper;
 import ru.tsyplakov.airlines.repository.UserRepository;
 
+@Service
 public class UserService extends BaseService<User, UserResponse, UserMapper> {
 
     private final PasswordEncoder passwordEncoder;

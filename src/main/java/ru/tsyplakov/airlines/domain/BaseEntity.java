@@ -5,9 +5,11 @@ import lombok.Getter;
 import lombok.Setter;
 
 @Getter
-@Setter
-@AllArgsConstructor
 public abstract class BaseEntity {
 
     private final Long id;
+
+    public BaseEntity(Long id) {
+        this.id = id;
+    }
 }

@@ -18,27 +18,19 @@ public class FlightService extends BaseService<Flight, FlightResponse, FlightMap
         super(flightRepository, flightMapper);
     }
 
-    public FlightResponse create(FlightCreateRequest flightCreateRequest) {
+    public FlightResponse create(FlightCreateRequest request) {
         Long id = repository.getNextId();
-        Flight flight = new Flight(
-                id,
-                flightCreateRequest.flightNumber(),
-                flightCreateRequest.departureICAO(),
-                flightCreateRequest.arrivalICAO(),
-                flightCreateRequest.departureTime(),
-                flightCreateRequest.arrivalTime(),
-                flightCreateRequest.capacity()
-        );
+        Flight flight = mapper.toEntity(id, request);
         repository.create(flight);
         return mapper.toResponse(flight);
     }
 
-    public FlightResponse update(Long id, FlightUpdateRequest flightUpdateRequest) {
+    public FlightResponse update(Long id, FlightUpdateRequest request) {
         Flight flightForUpdate = repository.getById(id);
         if (flightForUpdate == null) {
             throw new NotFoundException("Entity with id: " + id + " not found");
         }
-        Flight updatedFlight = mapper.updateEntity(flightForUpdate, flightUpdateRequest);
+        Flight updatedFlight = mapper.updateEntity(flightForUpdate, request);
         repository.update(updatedFlight);
         return mapper.toResponse(updatedFlight);
     }

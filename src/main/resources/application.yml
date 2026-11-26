@@ -1,3 +1,14 @@
 spring:
   application:
     name: airlines
+  profiles:
+    active: dev
+  mvc:
+    problemdetails:
+      enabled: true
+
+springdoc:
+  swagger-ui:
+    path: /docs
+  api-docs:
+    path: /v1/api-docs

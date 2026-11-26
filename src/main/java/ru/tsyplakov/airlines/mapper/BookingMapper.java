@@ -24,8 +24,8 @@ public class BookingMapper implements ToResponseMapper<Booking, BookingResponse>
     public BookingResponse toResponse(Booking entity) {
         return new BookingResponse(
                 entity.getId(),
-                entity.getFlightId(),
                 entity.getUserId(),
+                entity.getFlightId(),
                 entity.getSeatNumber(),
                 entity.getServiceClass(),
                 entity.getPrice(),

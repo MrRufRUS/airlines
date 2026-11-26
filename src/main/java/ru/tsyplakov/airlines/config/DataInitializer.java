@@ -18,8 +18,8 @@ public class DataInitializer {
                     "RA123",
                     "UUEE",
                     "ULLI",
-                    Instant.parse("2026-12-01T10:00:00Z"),
-                    Instant.parse("2026-12-01T11:30:00Z"),
+                    Instant.parse("2026-11-01T10:00:00Z"),
+                    Instant.parse("2026-11-01T11:30:00Z"),
                     180
                 )
             );
