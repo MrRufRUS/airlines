@@ -42,4 +42,10 @@ public class BookingController {
             @PathVariable Long id, @Valid @RequestBody BookingUpdateRequest booking) {
         return ResponseEntity.ok(service.update(id, booking));
     }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> delete(@PathVariable Long id) {
+        service.delete(id);
+        return ResponseEntity.noContent().build();
+    }
 }
