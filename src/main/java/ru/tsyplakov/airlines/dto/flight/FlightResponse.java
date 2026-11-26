@@ -9,6 +9,4 @@ public record FlightResponse(
         String arrivalICAO,
         Instant departureTime,
         Instant arrivalTime,
-        Integer capacity
-) {
-}
+        Integer capacity) {}

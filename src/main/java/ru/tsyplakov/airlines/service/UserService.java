@@ -14,14 +14,14 @@ import ru.tsyplakov.airlines.repository.UserRepository;
 public class UserService extends BaseService<User, UserResponse, UserMapper> {
 
     private final PasswordEncoder passwordEncoder;
-    public UserService(UserRepository userRepository, PasswordEncoder passwordEncoder, UserMapper userMapper) {
+
+    public UserService(
+            UserRepository userRepository, PasswordEncoder passwordEncoder, UserMapper userMapper) {
         super(userRepository, userMapper);
         this.passwordEncoder = passwordEncoder;
     }
 
-    public UserResponse create(
-            UserCreateRequest request
-    ) {
+    public UserResponse create(UserCreateRequest request) {
         Long id = repository.getNextId();
         String passwordHash = passwordEncoder.encode(request.password());
         User user = mapper.toEntity(id, request, passwordHash);
@@ -29,17 +29,13 @@ public class UserService extends BaseService<User, UserResponse, UserMapper> {
         return mapper.toResponse(user);
     }
 
-    public UserResponse update(Long id, UserUpdateRequest request){
+    public UserResponse update(Long id, UserUpdateRequest request) {
         User userForUpdate = repository.getById(id);
         if (userForUpdate == null) {
             throw new NotFoundException("Entity with id:" + id + " not found");
         }
         String passwordHash = passwordEncoder.encode(request.password());
-        User user = mapper.updateEntity(
-                repository.getById(id),
-                request,
-                passwordHash
-        );
+        User user = mapper.updateEntity(repository.getById(id), request, passwordHash);
         repository.update(user);
         return mapper.toResponse(user);
     }

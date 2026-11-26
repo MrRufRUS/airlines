@@ -1,9 +1,8 @@
 package ru.tsyplakov.airlines.domain;
 
+import java.time.Instant;
 import lombok.Getter;
 import lombok.Setter;
-
-import java.time.Instant;
 
 @Getter
 @Setter
@@ -15,7 +14,14 @@ public class Flight extends BaseEntity {
     private Instant arrivalTime; // время по UTC
     private int capacity;
 
-    public Flight(Long id, String flightNumber, String departureICAO, String arrivalICAO, Instant departureTime, Instant arrivalTime, int capacity) {
+    public Flight(
+            Long id,
+            String flightNumber,
+            String departureICAO,
+            String arrivalICAO,
+            Instant departureTime,
+            Instant arrivalTime,
+            int capacity) {
         super(id);
         this.flightNumber = flightNumber;
         this.departureICAO = departureICAO;

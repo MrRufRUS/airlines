@@ -1,10 +1,9 @@
 package ru.tsyplakov.airlines.dto.booking;
 
-import ru.tsyplakov.airlines.domain.BookingStatus;
-import ru.tsyplakov.airlines.domain.ServiceClass;
-
 import java.math.BigDecimal;
 import java.time.Instant;
+import ru.tsyplakov.airlines.domain.BookingStatus;
+import ru.tsyplakov.airlines.domain.ServiceClass;
 
 public record BookingResponse(
         Long id,
@@ -14,5 +13,4 @@ public record BookingResponse(
         ServiceClass serviceClass,
         BigDecimal price,
         BookingStatus status,
-        Instant bookedAt
-) {}
+        Instant bookedAt) {}

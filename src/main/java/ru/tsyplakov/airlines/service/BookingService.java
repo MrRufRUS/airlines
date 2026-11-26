@@ -3,12 +3,10 @@ package ru.tsyplakov.airlines.service;
 import org.springframework.stereotype.Service;
 import ru.tsyplakov.airlines.domain.Booking;
 import ru.tsyplakov.airlines.domain.Flight;
-import ru.tsyplakov.airlines.domain.ServiceClass;
 import ru.tsyplakov.airlines.domain.User;
 import ru.tsyplakov.airlines.dto.booking.BookingCreateRequest;
 import ru.tsyplakov.airlines.dto.booking.BookingResponse;
 import ru.tsyplakov.airlines.dto.booking.BookingUpdateRequest;
-import ru.tsyplakov.airlines.dto.flight.FlightResponse;
 import ru.tsyplakov.airlines.exeption.NotEnoughSeats;
 import ru.tsyplakov.airlines.exeption.NotFoundException;
 import ru.tsyplakov.airlines.exeption.TooLateBooking;
@@ -17,14 +15,16 @@ import ru.tsyplakov.airlines.repository.BookingRepository;
 import ru.tsyplakov.airlines.repository.FlightRepository;
 import ru.tsyplakov.airlines.repository.UserRepository;
 
-import java.math.BigDecimal;
-
 @Service
 public class BookingService extends BaseService<Booking, BookingResponse, BookingMapper> {
     private final FlightRepository flightRepository;
     private final UserRepository userRepository;
 
-    public BookingService(BookingRepository bookingRepository, BookingMapper bookingMapper, FlightRepository flightRepository, UserRepository userRepository) {
+    public BookingService(
+            BookingRepository bookingRepository,
+            BookingMapper bookingMapper,
+            FlightRepository flightRepository,
+            UserRepository userRepository) {
         super(bookingRepository, bookingMapper);
         this.flightRepository = flightRepository;
         this.userRepository = userRepository;
@@ -43,8 +43,12 @@ public class BookingService extends BaseService<Booking, BookingResponse, Bookin
         if (flight.getDepartureTime().isBefore(java.time.Instant.now())) {
             throw new TooLateBooking("Cannot book a flight that has already departed");
         }
-        if (getAll().stream().filter(booking -> booking.flightId().equals(request.flightId())).count() >= flight.getCapacity()) {
-            throw new NotEnoughSeats("Not enough seats available for flight with id: " + request.flightId());
+        if (getAll().stream()
+                        .filter(booking -> booking.flightId().equals(request.flightId()))
+                        .count()
+                >= flight.getCapacity()) {
+            throw new NotEnoughSeats(
+                    "Not enough seats available for flight with id: " + request.flightId());
         }
 
         Booking booking = mapper.toEntity(id, request);
@@ -61,5 +65,4 @@ public class BookingService extends BaseService<Booking, BookingResponse, Bookin
         repository.update(updatedBooking);
         return mapper.toResponse(updatedBooking);
     }
-
 }

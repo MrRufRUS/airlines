@@ -1,10 +1,9 @@
 package ru.tsyplakov.airlines.domain;
 
-import lombok.Getter;
-import lombok.Setter;
-
 import java.math.BigDecimal;
 import java.time.Instant;
+import lombok.Getter;
+import lombok.Setter;
 
 @Getter
 @Setter
@@ -24,8 +23,7 @@ public class Booking extends BaseEntity {
             Long flightId,
             String seatNumber,
             ServiceClass serviceClass,
-            BigDecimal price
-    ) {
+            BigDecimal price) {
         super(id);
         this.userId = userId;
         this.flightId = flightId;

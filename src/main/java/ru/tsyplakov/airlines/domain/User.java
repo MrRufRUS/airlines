@@ -1,6 +1,5 @@
 package ru.tsyplakov.airlines.domain;
 
-
 import lombok.Getter;
 import lombok.Setter;
 

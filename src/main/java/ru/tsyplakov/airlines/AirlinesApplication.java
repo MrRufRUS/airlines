@@ -6,8 +6,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class AirlinesApplication {
 
-	static void main(String[] args) {
-		SpringApplication.run(AirlinesApplication.class, args);
-	}
-
+    static void main(String[] args) {
+        SpringApplication.run(AirlinesApplication.class, args);
+    }
 }

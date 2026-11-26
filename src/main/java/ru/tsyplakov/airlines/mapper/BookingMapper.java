@@ -16,8 +16,7 @@ public class BookingMapper implements ToResponseMapper<Booking, BookingResponse>
                 bookingCreateRequest.flightId(),
                 bookingCreateRequest.seatNumber(),
                 bookingCreateRequest.serviceClass(),
-                bookingCreateRequest.price()
-        );
+                bookingCreateRequest.price());
     }
 
     @Override
@@ -30,8 +29,7 @@ public class BookingMapper implements ToResponseMapper<Booking, BookingResponse>
                 entity.getServiceClass(),
                 entity.getPrice(),
                 entity.getBookingStatus(),
-                entity.getBookedAt()
-        );
+                entity.getBookedAt());
     }
 
     public Booking updateEntity(Booking booking, BookingUpdateRequest bookingUpdateRequest) {

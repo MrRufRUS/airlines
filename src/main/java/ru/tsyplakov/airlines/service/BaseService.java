@@ -1,17 +1,12 @@
 package ru.tsyplakov.airlines.service;
 
+import java.util.List;
 import ru.tsyplakov.airlines.domain.BaseEntity;
 import ru.tsyplakov.airlines.exeption.NotFoundException;
 import ru.tsyplakov.airlines.mapper.ToResponseMapper;
 import ru.tsyplakov.airlines.repository.BaseRepository;
 
-import java.util.List;
-
-public abstract class BaseService<
-        T extends BaseEntity,
-        R,
-        M extends ToResponseMapper<T, R>
-        > {
+public abstract class BaseService<T extends BaseEntity, R, M extends ToResponseMapper<T, R>> {
 
     protected final BaseRepository<T> repository;
     protected final M mapper;

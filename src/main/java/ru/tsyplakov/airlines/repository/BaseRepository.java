@@ -1,17 +1,15 @@
 package ru.tsyplakov.airlines.repository;
 
-import ru.tsyplakov.airlines.domain.BaseEntity;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicLong;
+import ru.tsyplakov.airlines.domain.BaseEntity;
 
 public abstract class BaseRepository<T extends BaseEntity> {
 
-    private final Map<Long, T> repository =
-            new ConcurrentHashMap<>();
+    private final Map<Long, T> repository = new ConcurrentHashMap<>();
 
     private final AtomicLong idGenerator = new AtomicLong(1);
 

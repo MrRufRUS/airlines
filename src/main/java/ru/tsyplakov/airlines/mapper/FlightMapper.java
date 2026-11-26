@@ -17,8 +17,7 @@ public class FlightMapper implements ToResponseMapper<Flight, FlightResponse> {
                 flightCreateRequest.arrivalICAO(),
                 flightCreateRequest.departureTime(),
                 flightCreateRequest.arrivalTime(),
-                flightCreateRequest.capacity()
-        );
+                flightCreateRequest.capacity());
     }
 
     @Override
@@ -30,8 +29,7 @@ public class FlightMapper implements ToResponseMapper<Flight, FlightResponse> {
                 flight.getArrivalICAO(),
                 flight.getDepartureTime(),
                 flight.getArrivalTime(),
-                flight.getCapacity()
-        );
+                flight.getCapacity());
     }
 
     public Flight updateEntity(Flight flight, FlightUpdateRequest flightCreateRequest) {

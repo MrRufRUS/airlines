@@ -6,10 +6,8 @@ import ru.tsyplakov.airlines.dto.flight.FlightCreateRequest;
 import ru.tsyplakov.airlines.dto.flight.FlightResponse;
 import ru.tsyplakov.airlines.dto.flight.FlightUpdateRequest;
 import ru.tsyplakov.airlines.exeption.NotFoundException;
-import ru.tsyplakov.airlines.repository.FlightRepository;
 import ru.tsyplakov.airlines.mapper.FlightMapper;
-
-import java.time.Instant;
+import ru.tsyplakov.airlines.repository.FlightRepository;
 
 @Service
 public class FlightService extends BaseService<Flight, FlightResponse, FlightMapper> {
