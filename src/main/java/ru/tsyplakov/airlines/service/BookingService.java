@@ -7,9 +7,9 @@ import ru.tsyplakov.airlines.domain.User;
 import ru.tsyplakov.airlines.dto.booking.BookingCreateRequest;
 import ru.tsyplakov.airlines.dto.booking.BookingResponse;
 import ru.tsyplakov.airlines.dto.booking.BookingUpdateRequest;
-import ru.tsyplakov.airlines.exeption.NotEnoughSeats;
-import ru.tsyplakov.airlines.exeption.NotFoundException;
-import ru.tsyplakov.airlines.exeption.TooLateBooking;
+import ru.tsyplakov.airlines.exception.NotEnoughSeatsException;
+import ru.tsyplakov.airlines.exception.NotFoundException;
+import ru.tsyplakov.airlines.exception.TooLateBookingException;
 import ru.tsyplakov.airlines.mapper.BookingMapper;
 import ru.tsyplakov.airlines.repository.BookingRepository;
 import ru.tsyplakov.airlines.repository.FlightRepository;
@@ -41,13 +41,13 @@ public class BookingService extends BaseService<Booking, BookingResponse, Bookin
             throw new NotFoundException("User with id: " + request.userId() + " not found");
         }
         if (flight.getDepartureTime().isBefore(java.time.Instant.now())) {
-            throw new TooLateBooking("Cannot book a flight that has already departed");
+            throw new TooLateBookingException("Cannot book a flight that has already departed");
         }
         if (getAll().stream()
                         .filter(booking -> booking.flightId().equals(request.flightId()))
                         .count()
                 >= flight.getCapacity()) {
-            throw new NotEnoughSeats(
+            throw new NotEnoughSeatsException(
                     "Not enough seats available for flight with id: " + request.flightId());
         }
 

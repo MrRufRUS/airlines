@@ -5,7 +5,7 @@ import ru.tsyplakov.airlines.domain.Flight;
 import ru.tsyplakov.airlines.dto.flight.FlightCreateRequest;
 import ru.tsyplakov.airlines.dto.flight.FlightResponse;
 import ru.tsyplakov.airlines.dto.flight.FlightUpdateRequest;
-import ru.tsyplakov.airlines.exeption.NotFoundException;
+import ru.tsyplakov.airlines.exception.NotFoundException;
 import ru.tsyplakov.airlines.mapper.FlightMapper;
 import ru.tsyplakov.airlines.repository.FlightRepository;
 

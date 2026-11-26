@@ -6,7 +6,7 @@ import ru.tsyplakov.airlines.domain.User;
 import ru.tsyplakov.airlines.dto.user.UserCreateRequest;
 import ru.tsyplakov.airlines.dto.user.UserResponse;
 import ru.tsyplakov.airlines.dto.user.UserUpdateRequest;
-import ru.tsyplakov.airlines.exeption.NotFoundException;
+import ru.tsyplakov.airlines.exception.NotFoundException;
 import ru.tsyplakov.airlines.mapper.UserMapper;
 import ru.tsyplakov.airlines.repository.UserRepository;
 

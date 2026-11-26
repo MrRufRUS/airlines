@@ -1,4 +1,4 @@
-package ru.tsyplakov.airlines.exeption;
+package ru.tsyplakov.airlines.exception;
 
 public class NotFoundException extends RuntimeException {
     public NotFoundException(String message) {

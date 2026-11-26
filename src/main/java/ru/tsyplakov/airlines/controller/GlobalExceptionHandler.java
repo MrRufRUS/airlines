@@ -4,9 +4,9 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ProblemDetail;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
-import ru.tsyplakov.airlines.exeption.NotEnoughSeats;
-import ru.tsyplakov.airlines.exeption.NotFoundException;
-import ru.tsyplakov.airlines.exeption.TooLateBooking;
+import ru.tsyplakov.airlines.exception.NotEnoughSeatsException;
+import ru.tsyplakov.airlines.exception.NotFoundException;
+import ru.tsyplakov.airlines.exception.TooLateBookingException;
 
 @RestControllerAdvice
 public class GlobalExceptionHandler {
@@ -19,8 +19,8 @@ public class GlobalExceptionHandler {
         return problemDetail;
     }
 
-    @ExceptionHandler(NotEnoughSeats.class)
-    public ProblemDetail handleNotEnoughSeatsException(NotEnoughSeats ex) {
+    @ExceptionHandler(NotEnoughSeatsException.class)
+    public ProblemDetail handleNotEnoughSeatsException(NotEnoughSeatsException ex) {
         ProblemDetail problemDetail =
                 ProblemDetail.forStatusAndDetail(HttpStatus.CONFLICT, ex.getMessage());
         problemDetail.setTitle("Not Enough Seats");
@@ -28,8 +28,8 @@ public class GlobalExceptionHandler {
         return problemDetail;
     }
 
-    @ExceptionHandler(TooLateBooking.class)
-    public ProblemDetail handleTooLateBookingException(TooLateBooking ex) {
+    @ExceptionHandler(TooLateBookingException.class)
+    public ProblemDetail handleTooLateBookingException(TooLateBookingException ex) {
         ProblemDetail problemDetail =
                 ProblemDetail.forStatusAndDetail(HttpStatus.CONFLICT, ex.getMessage());
         problemDetail.setTitle("Too Late to Book");

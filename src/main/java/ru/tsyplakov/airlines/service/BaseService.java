@@ -2,7 +2,7 @@ package ru.tsyplakov.airlines.service;
 
 import java.util.List;
 import ru.tsyplakov.airlines.domain.BaseEntity;
-import ru.tsyplakov.airlines.exeption.NotFoundException;
+import ru.tsyplakov.airlines.exception.NotFoundException;
 import ru.tsyplakov.airlines.mapper.ToResponseMapper;
 import ru.tsyplakov.airlines.repository.BaseRepository;
 
